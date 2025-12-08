@@ -1,0 +1,85 @@
+body {
+    font-family: system-ui, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Progress bar */
+#progress-container {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #4a90e2;
+    transition: width 0.4s ease;
+}
+
+/* Card */
+#card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.4s forwards ease;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.answer-btn {
+    display: block;
+    width: 100%;
+    background: #4a90e2;
+    border: none;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.answer-btn:hover {
+    background: #3575c4;
+}
+
+/* Restart btn */
+#restart {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.hidden { display: none; }
