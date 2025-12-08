@@ -1,11 +1,13 @@
-/*******************************
+fr/*******************************
  * STRUCTURE DE L’ARBRE
  *******************************/
 const tree = {
-    question: "Quel est ton objectif ?",
+    question: "À quelle fréquence souhaitez-vous utiliser l'ordinateur ?",
     answers: [
         {
-            text: "Apprendre vite",
+            text: "Une fois par mois ou moins",
+            text: "Au moins une fois par semaine",
+            text: "Tous les jours",
             next: {
                 question: "Quel format préfères-tu ?",
                 answers: [
@@ -31,9 +33,9 @@ const tree = {
  * RÉSULTATS FINALS
  *********************************/
 const results = {
-    "prop1": "🎬 Proposition 1 : Apprentissage vidéo",
-    "prop2": "🧩 Proposition 2 : Exercices interactifs",
-    "prop3": "📚 Proposition 3 : Programme long + complet"
+    "prop1": "Nous vous recommandons un ordinateur 'Usage Occasionnel' à 70 €",
+    "prop2": "Nous vous recommandons un ordinateur 'Usage Courant à 110 €",
+    "prop3": "Nous vous recommandons un ordinateur 'Usage Avancé à 150 €"
 };
 
 /*********************************
