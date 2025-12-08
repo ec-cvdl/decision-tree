@@ -14,8 +14,8 @@ const tree = {
                 question: "Que souhaiteriez-vous faire dessus ?",
                 answers: [
                     {
-                        text: "Mail et navigation Internet principalement",
-                        next: "courant"
+                        text: "Mails et navigation Internet principalement",
+                        next: "occasionnel"
                     },
                     {
                         text: "Internet, administratif et bureautique",
