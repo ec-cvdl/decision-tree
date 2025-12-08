@@ -34,15 +34,15 @@ const tree = {
                 question: "Que souhaiteriez-vous faire dessus ?",
                 answers: [
                     {
-                        text: "Mail et navigation Internet principalement",
+                        text: "Mail, Internet principalement et bureautique légère",
                         next: "courant"
                     },
                     {
-                        text: "Internet, administratif et bureautique",
+                        text: "Mails, Internet, administratif et bureautique",
                         next: "courant"
                     },
                     {
-                        text: "Logiciels métier et poussés",
+                        text: "Logiciels métier, bureautique exigeante",
                         next: "avance"
                     }
                 ]
@@ -55,8 +55,8 @@ const tree = {
  * RÉSULTATS FINALS
  *********************************/
 const results = {
-    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet ou consulter des mails occasionnellement.",
-    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent pour un usage hebdomadaire : Internet, bureautique, administratif.",
+    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet, consulter ses mails occasionnellement et faire de la bureautique légère",
+    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent pour un usage hebdomadaire : Internet, bureautique, administratif. Parfaitement adapté à un usage quotidien",
     "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante, adaptée aux logiciels lourds, métiers ou poussés."
 };
 
