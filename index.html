@@ -1,115 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arbre de Décision</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        max-width: 600px;
-        margin: 40px auto;
-        line-height: 1.6;
-    }
-    .question {
-        font-size: 1.3em;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-    .btn {
-        display: block;
-        background: #007bff;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 8px;
-        margin: 10px 0;
-        text-decoration: none;
-        cursor: pointer;
-        width: fit-content;
-    }
-    .btn:hover {
-        background: #0056b3;
-    }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<h1>Arbre de Décision Interactif</h1>
 
-<div id="app"></div>
+<div class="container">
+    <h1 class="title">Arbre de Décision Interactif</h1>
 
-<script>
-// ------------------------------
-// 🌳 DÉFINITION DE L’ARBRE
-// ------------------------------
-const tree = {
-    question: "Quel est ton objectif principal ?",
-    answers: [
-        { text: "Apprendre rapidement", next: {
-            question: "Tu préfères apprendre comment ?",
-            answers: [
-                { text: "Avec des vidéos",   next: "proposition1" },
-                { text: "Avec des exercices", next: "proposition2" }
-            ]
-        }},
-        { text: "Comprendre en profondeur", next: {
-            question: "Quelle durée te convient ?",
-            answers: [
-                { text: "Courte",            next: "proposition2" },
-                { text: "Longue",            next: "proposition3" }
-            ]
-        }}
-    ]
-};
+    <!-- Barre de progression -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
 
-// ------------------------------
-// ⭐ RÉSULTATS FINAUX (3 propositions)
-// ------------------------------
-const results = {
-    "proposition1": "👉 **Proposition 1 : Format Vidéo**  
-    Idéal si tu veux apprendre vite et visuellement.",
-    
-    "proposition2": "👉 **Proposition 2 : Exercices interactifs**  
-    Parfait pour apprendre par la pratique.",
+    <!-- Carte principale -->
+    <div id="card">
+        <div id="question"></div>
+        <div id="answers"></div>
+    </div>
 
-    "proposition3": "👉 **Proposition 3 : Programme long complet**  
-    Pour comprendre en profondeur avec un accompagnement complet."
-};
+    <!-- Bouton de redémarrage -->
+    <button id="restart" class="hidden">Recommencer</button>
+</div>
 
-// ------------------------------
-// 🚀 MOTEUR DE NAVIGATION
-// ------------------------------
-const app = document.getElementById("app");
-
-function renderNode(node) {
-    // Si c’est un résultat final
-    if (typeof node === "string") {
-        app.innerHTML = `
-            <div class="question">Résultat :</div>
-            <p>${results[node]}</p>
-            <a class="btn" onclick="restart()">Recommencer</a>
-        `;
-        return;
-    }
-
-    // Sinon, une question
-    app.innerHTML = `
-        <div class="question">${node.question}</div>
-        ${node.answers.map(a =>
-            `<a class="btn" onclick='next(${JSON.stringify(a.next)})'>${a.text}</a>`
-        ).join("")}
-    `;
-}
-
-function next(nextNode) {
-    renderNode(nextNode);
-}
-
-function restart() {
-    renderNode(tree);
-}
-
-// Démarrer l’arbre
-renderNode(tree);
-</script>
+<script src="app.js"></script>
 </body>
 </html>
