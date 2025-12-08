@@ -55,9 +55,9 @@ const tree = {
  * RÉSULTATS FINALS
  *********************************/
 const results = {
-    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet, consulter ses mails occasionnellement et faire de la bureautique légère",
-    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent pour un usage hebdomadaire : Internet, bureautique, administratif. Parfaitement adapté à un usage quotidien",
-    "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante, adaptée aux logiciels lourds, métiers ou poussés."
+    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet, consulter ses mails occasionnellement et faire de la bureautique légère.",
+    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent pour un usage hebdomadaire : Internet, bureautique, administratif. Egalement très adapté pour un usage quotidien.",
+    "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante, adaptée à des logiciels métiers, demandant plus de ressources. Permet également de d'utiliser des logiciels de bureautique plus poussée."
 };
 
 /*********************************
@@ -126,7 +126,7 @@ restartBtn.onclick = restart;
 /*********************************
  * EXPORT DES RÉPONSES
  *********************************/
-function exportData() {
+/*function exportData() {
     const csv = answersLog.join(",");
     const blob = new Blob([csv], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
@@ -135,7 +135,7 @@ function exportData() {
     a.href = url;
     a.download = "reponses_arbre_pc.csv";
     a.click();
-}
+} */
 
 /*********************************
  * LANCER L’APP
