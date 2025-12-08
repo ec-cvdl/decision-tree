@@ -55,9 +55,9 @@ const tree = {
  * RÉSULTATS FINALS
  *********************************/
 const results = {
-    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet, consulter ses mails occasionnellement et faire de la bureautique légère.",
-    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent pour un usage hebdomadaire : Internet, bureautique, administratif. Egalement très adapté pour un usage quotidien.",
-    "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante, adaptée à des logiciels métiers, demandant plus de ressources. Permet également de d'utiliser des logiciels de bureautique plus poussée."
+    "occasionnel": "🟦 Usage occasionnel (70 €) :<br><br>Un ordinateur simple, pour naviguer sur Internet, consulter ses mails occasionnellement et faire de la bureautique légère.",
+    "courant": "🟩 Usage courant (110 €) :<br><br>Un PC polyvalent pour un usage hebdomadaire : Internet, bureautique, administratif. Egalement très adapté pour un usage quotidien.",
+    "avance": "🟥 Usage avancé (150 €) :<br><br>Une machine plus puissante, adaptée à des logiciels métiers, demandant plus de ressources. Permet également de d'utiliser des logiciels de bureautique plus poussée."
 };
 
 /*********************************
