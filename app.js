@@ -1,28 +1,50 @@
-fr/*******************************
+/*******************************
  * STRUCTURE DE L’ARBRE
  *******************************/
 const tree = {
-    question: "À quelle fréquence souhaitez-vous utiliser l'ordinateur ?",
+    question: "À quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
     answers: [
         {
-            text: "Une fois par mois ou moins",
+            text: "Une fois par mois",
+            next: "occasionnel"
+        },
+        {
             text: "Au moins une fois par semaine",
-            text: "Tous les jours",
             next: {
-                question: "Quel format préfères-tu ?",
+                question: "Que souhaiteriez-vous faire dessus ?",
                 answers: [
-                    { text: "Vidéos", next: "prop1" },
-                    { text: "Exercices", next: "prop2" }
+                    {
+                        text: "Mail et navigation Internet principalement",
+                        next: "courant"
+                    },
+                    {
+                        text: "Internet, administratif et bureautique",
+                        next: "courant"
+                    },
+                    {
+                        text: "Logiciels métier et poussés",
+                        next: "avance"
+                    }
                 ]
             }
         },
         {
-            text: "Comprendre à fond",
+            text: "Tous les jours",
             next: {
-                question: "Durée souhaitée ?",
+                question: "Que souhaiteriez-vous faire dessus ?",
                 answers: [
-                    { text: "Courte", next: "prop2" },
-                    { text: "Longue", next: "prop3" }
+                    {
+                        text: "Mail et navigation Internet principalement",
+                        next: "courant"
+                    },
+                    {
+                        text: "Internet, administratif et bureautique",
+                        next: "courant"
+                    },
+                    {
+                        text: "Logiciels métier et poussés",
+                        next: "avance"
+                    }
                 ]
             }
         }
@@ -33,17 +55,17 @@ const tree = {
  * RÉSULTATS FINALS
  *********************************/
 const results = {
-    "prop1": "Nous vous recommandons un ordinateur 'Usage Occasionnel' à 70 €",
-    "prop2": "Nous vous recommandons un ordinateur 'Usage Courant à 110 €",
-    "prop3": "Nous vous recommandons un ordinateur 'Usage Avancé à 150 €"
+    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet ou consulter des mails occasionnellement.",
+    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent pour un usage hebdomadaire : Internet, bureautique, administratif.",
+    "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante, adaptée aux logiciels lourds, métiers ou poussés."
 };
 
 /*********************************
  * APP STATE
  *********************************/
 let currentNode = tree;
-let steps = [];   // pour la progression
-let answersLog = []; // pour l'export
+let steps = [];           // pour progression
+let answersLog = [];      // pour export CSV
 
 /*********************************
  * SELECTEURS
@@ -56,14 +78,13 @@ const restartBtn = document.getElementById("restart");
 /*********************************
  * FONCTIONS
  *********************************/
-
 function render(node) {
 
-    // mettre à jour la progression
-    const progress = Math.round((steps.length / 5) * 100);
+    // Progression simple basée sur le nombre de questions
+    const progress = Math.min(100, Math.round((steps.length / 3) * 100));
     progressBar.style.width = progress + "%";
 
-    // résultat final ?
+    // Résultat final ?
     if (typeof node === "string") {
         questionEl.innerHTML = "Résultat final";
         answersEl.innerHTML = `
@@ -74,10 +95,10 @@ function render(node) {
         return;
     }
 
-    // afficher la question
+    // Afficher la question
     questionEl.innerHTML = node.question;
 
-    // afficher les réponses
+    // Afficher les réponses
     answersEl.innerHTML = "";
     node.answers.forEach(answer => {
         const btn = document.createElement("button");
@@ -100,7 +121,6 @@ function restart() {
     restartBtn.classList.add("hidden");
     render(tree);
 }
-
 restartBtn.onclick = restart;
 
 /*********************************
@@ -113,7 +133,7 @@ function exportData() {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "reponses.csv";
+    a.download = "reponses_arbre_pc.csv";
     a.click();
 }
 
