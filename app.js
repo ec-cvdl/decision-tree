@@ -97,7 +97,7 @@ function render(node) {
         questionEl.innerHTML = "Résultat final";
         answersEl.innerHTML = `
             <p>${results[node]}</p>
-            <button class="answer-btn" onclick="exportData()">Exporter mes réponses</button>
+            
         `;
         restartBtn.classList.remove("hidden");
         return;
