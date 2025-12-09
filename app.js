@@ -47,7 +47,7 @@ const emploi_2 = {
             next: "avance"
         }
     ]
-}
+};
 
 // Profil asile
 const asile_1 = {
@@ -64,20 +64,30 @@ const asile_1 = {
     ]
 };
 
-const asile_2 = {
-    question : "Que souhaitez "
-}
-
 // Profil étudiant/formation
 const etudiant_1 = {
-    question: "Que souhaiteriez-vous faire dessus ?",
+    question: "Que souhaiteriez-vous faire sur cet ordinateur ?",
     answers: [
         {
             text: "Internet, administratif et bureautique",
-            next: "courant"
+            next: "etudiant_2"
         },
         {
             text: "Logiciels métier et poussés, bureautique avancée",
+            next: "etudiant_2"
+        }
+    ]
+};
+
+const etudiant_2 = {
+    question: "Souhaitez-vous garder l'ordinateur le plus longtemps possible ?",
+    answers: [
+        {
+            text: "Je souhaite en changer avec mes études supérieures ou plus tard",
+            next: "courant"
+        }
+        {
+            text: "Je souhaite le garder le plus longtemps possible",
             next: "avance"
         }
     ]
@@ -130,7 +140,6 @@ function resolveNode(node) {
     if (node === "emploi_1") return emploi_1;
     if (node === "emploi_2") return emploi_2;
     if (node === "retraite_1") return retraite_1;
-    if (node === "retraite_2") return retraite_2;
     if (node === "etudiant_1") return etudiant_1;
     if (node === "etudiant_2") return etudiant_2;
     return node;
