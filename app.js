@@ -54,9 +54,9 @@ const usage = {
  * RÉSULTATS FINALS
  *********************************/
 const results = {
-    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet ou consulter des mails ponctuellement.",
-    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent convenant à la bureautique, à Internet et à un usage fréquent.",
-    "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante adaptée aux logiciels professionnels, métiers ou lourds."
+    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet ou consulter ses mails ponctuellement. Adapté pour les personnes à la retraite notamment, ainsi que les personne n'utilisant leur ordinateur que ponctuellement.",
+    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent convenant à la bureautique, à Internet et à un usage fréquent. Idéal pour les personnes utilisant un ordinateur de manière régulière ou quotidienne, pour tout type d'usage.",
+    "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante adaptée aux logiciels professionnels, métiers ou lourds. Adaptée aux personnes en études, en formation, ou aux personnes utilisant des logiciels métiers plus gourmands en ressources."
 };
 
 /*********************************
