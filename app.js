@@ -125,10 +125,14 @@ const restartBtn = document.getElementById("restart");
  * ROUTAGE DES NŒUDS
  *********************************/
 function resolveNode(node) {
-    if (node === "asile") return asile;
-    if (node === "emploi") return emploi;
-    if (node === "retraite") return retraite;
-    if (node === "etudiant") return etudiant;
+    if (node === "asile_1") return asile_1;
+    if (node === "asile_2") return asile_2;
+    if (node === "emploi_1") return emploi_1;
+    if (node === "emploi_2") return emploi_2;
+    if (node === "retraite_1") return retraite_1;
+    if (node === "retraite_2") return retraite_2;
+    if (node === "etudiant_1") return etudiant_1;
+    if (node === "etudiant_2") return etudiant_2;
     return node;
 }
 
