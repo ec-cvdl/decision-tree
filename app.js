@@ -6,57 +6,25 @@ const tree = {
     answers: [
         {
             text: "Je suis à la recherche d'un emploi",
-            next: "courant"
+            next: {
+                question: "A quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
+                next: {
+                  text: "De manière occasionnelle, une fois par semaine par exemple",
+                  next : {
+                    question: "Que souhaiteriez-vous dessus ?",
+                    answers: [
+                        {
+                            text: "Mail, Internet et bureautique légère principalement",
+                            next: "courant",
+                        }
+                    ]
+                  } 
+                }
+            }
         }
     ],
 
-    question: "À quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
-    answers: [
-        {
-            text: "Une fois par mois",
-            next: "occasionnel"
-        },
-        {
-            text: "Au moins une fois par semaine",
-            next: {
-                question: "Que souhaiteriez-vous faire dessus ?",
-                answers: [
-                    {
-                        text: "Mails et navigation Internet principalement",
-                        next: "occasionnel"
-                    },
-                    {
-                        text: "Internet, administratif et bureautique",
-                        next: "courant"
-                    },
-                    {
-                        text: "Logiciels métier et poussés",
-                        next: "avance"
-                    }
-                ]
-            }
-        },
-        {
-            text: "Tous les jours",
-            next: {
-                question: "Que souhaiteriez-vous faire dessus ?",
-                answers: [
-                    {
-                        text: "Mail, Internet principalement et bureautique légère",
-                        next: "courant"
-                    },
-                    {
-                        text: "Mails, Internet, administratif et bureautique",
-                        next: "courant"
-                    },
-                    {
-                        text: "Logiciels métier, bureautique exigeante",
-                        next: "avance"
-                    }
-                ]
-            }
-        }
-    ]
+
 };
 
 /*********************************
