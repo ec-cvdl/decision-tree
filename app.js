@@ -6,9 +6,9 @@ const tree = {
     answers: [
         { text: "Je suis à la recherche d'un emploi", next: "freq" },
         { text: "Je suis demandeur d'asile", next: "freq" },
-        { text: "Je suis au collège, lycée ou études supérieures", next: "freq" },
+        { text: "Je suis au collège, lycée ou études supérieures", next: "etudiant" },
         { text: "Je suis en formation", next: "freq" },
-        { text: "Je suis à la retraite", next: "freq" }
+        { text: "Je suis à la retraite", next: "retraite" }
     ]
 };
 
@@ -18,7 +18,7 @@ const freq = {
     answers: [
         {
             text: "Une fois par mois",
-            next: "occasionnel"
+            next: "usage"
         },
         {
             text: "Au moins une fois par semaine",
@@ -49,6 +49,26 @@ const usage = {
         }
     ]
 };
+
+// Sous-arbre 4 — profil étudiant
+const etudiant = {
+    question: "Que souhaiteriez-vous faire dessus ?",
+    answers: [
+        {
+            text: "Internet, administratif et bureautique",
+            next: "courant"
+        },
+        {
+            text: "Logiciels métier et poussés, bureautique avancée",
+            next: "avance"
+        }
+    ]
+};
+
+// Sous-arbre 5 — profil retraité
+const retraite = {
+    question: ""
+}
 
 /*********************************
  * RÉSULTATS FINALS
