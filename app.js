@@ -3,7 +3,7 @@
  *******************************/
 const tree = {
     question: "Quel est votre profil ?",
-    answers: [
+    next: [
         {
             text: "Je suis à la recherche d'un emploi",
             next: {
