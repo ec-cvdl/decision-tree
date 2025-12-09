@@ -4,35 +4,52 @@
 const tree = {
     question: "Quel est votre profil ?",
     answers: [
-        { text: "Je suis à la recherche d'un emploi", next: "freq" },
-        { text: "Je suis demandeur d'asile", next: "freq" },
-        { text: "Je suis au collège, lycée ou études supérieures", next: "etudiant" },
-        { text: "Je suis en formation", next: "freq" },
-        { text: "Je suis à la retraite", next: "retraite" }
+        { text: "Je suis à la recherche d'un emploi", next: "emploi_1" },
+        { text: "Je suis demandeur d'asile ou j'ai un titre de séjour", next: "asile_1" },
+        { text: "Je suis au collège, lycée ou études supérieures", next: "etudiant_1" },
+        { text: "Je suis en formation", next: "etudiant_1" },
+        { text: "Je suis à la retraite", next: "retraite_1" }
     ]
 };
 
-// Sous-arbre 2 — fréquence d’utilisation
-const freq = {
+// Profil emploi
+const emploi_1 = {
     question: "À quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
     answers: [
         {
             text: "Une fois par mois",
-            next: "usage"
+            next: "emploi_2"
         },
         {
             text: "Au moins une fois par semaine",
-            next: "usage"
+            next: "emploi_2"
         },
         {
             text: "Tous les jours",
-            next: "usage"
+            next: "emploi_2"
         }
     ]
 };
 
-// Sous-arbre 3 — type d’utilisation
-const usage = {
+const emploi_2 = {
+    question: "Que souhaiteriez-vous faire sur cet ordinateur ?",
+    answers: [
+        {
+            text: "Répondre à des mails de manière occasionnelle, consultez des offres",
+            next: "occasionnel"
+        },
+        {
+            text: "Répondre à des mails de manière régulière, consultez des offres, rédiger des CV, lettres de motivation et documents",
+            next: "courant"
+        },
+        {
+            text: "Rechercher de manière active une formation, demandant l'utilisation régulière et intensive d'un outil informatique",
+        }
+    ]
+}
+
+// Profil asile
+const asile_1 = {
     question: "Que souhaiteriez-vous faire dessus ?",
     answers: [
         {
@@ -50,8 +67,8 @@ const usage = {
     ]
 };
 
-// Sous-arbre 4 — profil étudiant
-const etudiant = {
+// Profil étudiant/formation
+const etudiant_1 = {
     question: "Que souhaiteriez-vous faire dessus ?",
     answers: [
         {
@@ -65,8 +82,8 @@ const etudiant = {
     ]
 };
 
-// Sous-arbre 5 — profil retraité
-const retraite = {
+// Profil retraité
+const retraite_1 = {
     question: "Que souhaiteriez-vous faire dessus ?",
     answers: [
         {
@@ -107,8 +124,8 @@ const restartBtn = document.getElementById("restart");
  * ROUTAGE DES NŒUDS
  *********************************/
 function resolveNode(node) {
-    if (node === "freq") return freq;
-    if (node === "usage") return usage;
+    if (node === "asile") return asile;
+    if (node === "emploi") return emploi;
     if (node === "retraite") return retraite;
     if (node === "etudiant") return etudiant;
     return node;
