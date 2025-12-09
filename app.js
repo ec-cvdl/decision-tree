@@ -44,6 +44,7 @@ const emploi_2 = {
         },
         {
             text: "Rechercher de manière active une formation, demandant l'utilisation régulière et intensive d'un outil informatique",
+            next: "avance"
         }
     ]
 }
