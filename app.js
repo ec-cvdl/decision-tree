@@ -85,7 +85,7 @@ const etudiant_2 = {
         {
             text: "Je souhaite en changer avec mes études supérieures ou plus tard",
             next: "courant"
-        }
+        },
         {
             text: "Je souhaite le garder le plus longtemps possible",
             next: "avance"
