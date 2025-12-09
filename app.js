@@ -2,6 +2,14 @@
  * STRUCTURE DE L’ARBRE
  *******************************/
 const tree = {
+    question: "Quel est votre profil ?",
+    answers: [
+        {
+            text: "Je suis à la recherche d'un emploi"
+            next: "courant"
+        }
+    ],
+
     question: "À quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
     answers: [
         {
