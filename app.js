@@ -5,7 +5,7 @@ const tree = {
     question: "Quel est votre profil ?",
     answers: [
         {
-            text: "Je suis à la recherche d'un emploi"
+            text: "Je suis à la recherche d'un emploi",
             next: "courant"
         }
     ],
