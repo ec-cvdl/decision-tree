@@ -6,9 +6,9 @@ const tree = {
     answers: [
         { text: "Je suis à la recherche d'un emploi", next: "freq" },
         { text: "Je suis demandeur d'asile", next: "freq" },
-        { text: "Je suis au collège, lycée ou études supérieures", next: "etudiant" },
+        { text: "Je suis au collège, lycée ou études supérieures", next: "freq" },
         { text: "Je suis en formation", next: "freq" },
-        { text: "Je suis à la retraite", next: "retraite" }
+        { text: "Je suis à la retraite", next: "freq" }
     ]
 };
 
@@ -78,7 +78,7 @@ const retraite = {
             next: "courant"
         }
     ]
-}
+};
 
 /*********************************
  * RÉSULTATS FINALS
