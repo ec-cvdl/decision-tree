@@ -43,7 +43,7 @@ const emploi_2 = {
             next: "courant"
         },
         {
-            text: "Rechercher de manière active une formation, demandant l'utilisation régulière et intensive d'un outil informatique",
+            text: "Rechercher de manière active une formation, demandant l'utilisation régulière et intensive d'un outil informatique pour son intégration",
             next: "avance"
         }
     ]
@@ -51,22 +51,22 @@ const emploi_2 = {
 
 // Profil asile
 const asile_1 = {
-    question: "Que souhaiteriez-vous faire dessus ?",
+    question: "Que souhaiteriez-vous faire sur cet ordinateur ?",
     answers: [
         {
-            text: "Mails et navigation Internet principalement, avec un peu de bureautique légère",
-            next: "courant"
+            text: "Démarches administratives, mails et Internet principalement",
+            next: "occasionnel"
         },
         {
-            text: "Internet, administratif et bureautique",
+            text: "Démarches administratives, mails, Internet, bureautique et visioconférence",
             next: "courant"
-        },
-        {
-            text: "Logiciels métier et poussés, bureautique avancée",
-            next: "avance"
         }
     ]
 };
+
+const asile_2 = {
+    question : "Que souhaitez "
+}
 
 // Profil étudiant/formation
 const etudiant_1 = {
@@ -149,7 +149,7 @@ function render(node) {
 
     // Résultat final ?
     if (typeof node === "string") {
-        questionEl.innerHTML = "Résultat final";
+        questionEl.innerHTML = "Recommandation";
         answersEl.innerHTML = `
             <p>${results[node]}</p>
 
