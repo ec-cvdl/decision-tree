@@ -4,44 +4,66 @@
 const tree = {
     question: "Quel est votre profil ?",
     answers: [
+        { text: "Je suis à la recherche d'un emploi", next: "freq" },
+        { text: "Je suis demandeur d'asile", next: "freq" },
+        { text: "Je suis au collège, lycée ou études supérieures", next: "freq" },
+        { text: "Je suis en formation", next: "freq" },
+        { text: "Je suis à la retraite", next: "freq" }
+    ]
+};
+
+// Sous-arbre 2 — fréquence d’utilisation
+const freq = {
+    question: "À quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
+    answers: [
         {
-            text: "Je suis à la recherche d'un emploi",
-            answers: {
-                question: "A quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
-                answers: {
-                  text: "De manière occasionnelle, une fois par semaine par exemple",
-                  answers : {
-                    question: "Que souhaiteriez-vous dessus ?",
-                    answers: [
-                        {
-                            text: "Mail, Internet et bureautique légère principalement",
-                            next: "courant",
-                        }
-                    ]
-                  } 
-                }
-            }
+            text: "Une fois par mois",
+            next: "occasionnel"
+        },
+        {
+            text: "Au moins une fois par semaine",
+            next: "usage"
+        },
+        {
+            text: "Tous les jours",
+            next: "usage"
         }
-    ],
+    ]
+};
 
-
+// Sous-arbre 3 — type d’utilisation
+const usage = {
+    question: "Que souhaiteriez-vous faire dessus ?",
+    answers: [
+        {
+            text: "Mails et navigation Internet principalement, avec un peu de bureautique légère",
+            next: "courant"
+        },
+        {
+            text: "Internet, administratif et bureautique",
+            next: "courant"
+        },
+        {
+            text: "Logiciels métier et poussés, bureautique avancée",
+            next: "avance"
+        }
+    ]
 };
 
 /*********************************
  * RÉSULTATS FINALS
  *********************************/
 const results = {
-    "occasionnel": "🟦 Usage occasionnel (70 €) :<br><br>Un ordinateur simple, pour naviguer sur Internet, consulter ses mails occasionnellement et faire de la bureautique légère.",
-    "courant": "🟩 Usage courant (110 €) :<br><br>Un PC polyvalent pour un usage régulier : Internet, bureautique, administratif. Egalement très adapté à un usage quotidien.",
-    "avance": "🟥 Usage avancé (150 €) :<br><br>Une machine plus puissante, adaptée à des logiciels métiers, demandant plus de ressources. Permet également d'utiliser des logiciels de bureautique plus poussée."
+    "occasionnel": "🟦 Usage occasionnel :<br><br>Un ordinateur simple, pour naviguer sur Internet ou consulter des mails ponctuellement.",
+    "courant": "🟩 Usage courant :<br><br>Un PC polyvalent convenant à la bureautique, à Internet et à un usage fréquent.",
+    "avance": "🟥 Usage avancé :<br><br>Une machine plus puissante adaptée aux logiciels professionnels, métiers ou lourds."
 };
 
 /*********************************
  * APP STATE
  *********************************/
-let currentNode = tree;
-let steps = [];           // pour progression
-let answersLog = [];      // pour export CSV
+let steps = [];           
+let answersLog = [];
 
 /*********************************
  * SELECTEURS
@@ -52,12 +74,23 @@ const progressBar = document.getElementById("progress-bar");
 const restartBtn = document.getElementById("restart");
 
 /*********************************
- * FONCTIONS
+ * ROUTAGE DES NŒUDS
+ *********************************/
+function resolveNode(node) {
+    if (node === "freq") return freq;
+    if (node === "usage") return usage;
+    return node;
+}
+
+/*********************************
+ * FONCTION D'AFFICHAGE
  *********************************/
 function render(node) {
 
-    // Progression simple basée sur le nombre de questions
-    const progress = Math.min(100, Math.round((steps.length / 3) * 100));
+    node = resolveNode(node);
+
+    const totalQuestions = 3;
+    const progress = Math.min(100, Math.round((steps.length / totalQuestions) * 100));
     progressBar.style.width = progress + "%";
 
     // Résultat final ?
@@ -65,17 +98,15 @@ function render(node) {
         questionEl.innerHTML = "Résultat final";
         answersEl.innerHTML = `
             <p>${results[node]}</p>
-            
+            <button class="answer-btn" onclick="exportData()">Exporter mes réponses</button>
         `;
         restartBtn.classList.remove("hidden");
         return;
     }
 
-    // Afficher la question
     questionEl.innerHTML = node.question;
-
-    // Afficher les réponses
     answersEl.innerHTML = "";
+
     node.answers.forEach(answer => {
         const btn = document.createElement("button");
         btn.className = "answer-btn";
@@ -100,18 +131,18 @@ function restart() {
 restartBtn.onclick = restart;
 
 /*********************************
- * EXPORT DES RÉPONSES
+ * EXPORT CSV
  *********************************/
-/*function exportData() {
+function exportData() {
     const csv = answersLog.join(",");
     const blob = new Blob([csv], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "reponses_arbre_pc.csv";
+    a.download = "reponses_pc.csv";
     a.click();
-} */
+}
 
 /*********************************
  * LANCER L’APP
