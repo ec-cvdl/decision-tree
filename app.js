@@ -109,6 +109,8 @@ const restartBtn = document.getElementById("restart");
 function resolveNode(node) {
     if (node === "freq") return freq;
     if (node === "usage") return usage;
+    if (node === "retraite") return retraite;
+    if (node === "etudiant") return etudiant;
     return node;
 }
 
