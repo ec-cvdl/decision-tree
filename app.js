@@ -67,7 +67,17 @@ const etudiant = {
 
 // Sous-arbre 5 — profil retraité
 const retraite = {
-    question: ""
+    question: "Que souhaiteriez-vous faire dessus ?",
+    answers: [
+        {
+            text: "Administratif, mails et navigation Internet principalement, avec un peu de bureautique légère",
+            next: "occasionnel"
+        },
+        {
+            text: "Internet, mails, administratif et bureautique de manière régulière ou quotidienne",
+            next: "courant"
+        }
+    ]
 }
 
 /*********************************
