@@ -3,14 +3,14 @@
  *******************************/
 const tree = {
     question: "Quel est votre profil ?",
-    next: [
+    answers: [
         {
             text: "Je suis à la recherche d'un emploi",
-            next: {
+            answers: {
                 question: "A quelle fréquence souhaiteriez-vous utiliser l'ordinateur ?",
-                next: {
+                answers: {
                   text: "De manière occasionnelle, une fois par semaine par exemple",
-                  next : {
+                  answers : {
                     question: "Que souhaiteriez-vous dessus ?",
                     answers: [
                         {
